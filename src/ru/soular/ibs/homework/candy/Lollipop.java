@@ -1,6 +1,6 @@
 package ru.soular.ibs.homework.candy;
 
-public class Lollipop extends AbstractCandy{
+public class Lollipop extends AbstractCandy {
 
     private String color;
 

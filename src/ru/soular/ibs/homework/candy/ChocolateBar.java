@@ -1,6 +1,6 @@
 package ru.soular.ibs.homework.candy;
 
-public class ChocolateBar extends AbstractCandy{
+public class ChocolateBar extends AbstractCandy {
 
     private String chocolateType;
 

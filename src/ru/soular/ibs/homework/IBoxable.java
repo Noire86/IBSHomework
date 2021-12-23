@@ -1,15 +1,17 @@
 package ru.soular.ibs.homework;
 
+import ru.soular.ibs.homework.candy.AbstractCandy;
+
 public interface IBoxable {
-    void add(Object o);
+    void add(AbstractCandy candy);
 
     void remove();
 
     void remove(int index);
 
-    String printWeight();
+    void printWeight();
 
-    String printOverallCost();
+    void printOverallCost();
 
-    String printContents();
+    void printContents();
 }

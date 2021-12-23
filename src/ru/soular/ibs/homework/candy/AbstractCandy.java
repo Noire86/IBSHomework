@@ -1,19 +1,15 @@
-package ru.soular.ibs.homework;
+package ru.soular.ibs.homework.candy;
 
 public abstract class AbstractCandy {
     private String name;
     private int weight;
     private int cost;
-    private String shape;
-    private String taste;
     private boolean hasSugar;
 
-    public AbstractCandy(String name, int weight, int cost, String shape, String taste, boolean hasSugar) {
+    public AbstractCandy(String name, int weight, int cost, boolean hasSugar) {
         this.name = name;
         this.weight = weight;
         this.cost = cost;
-        this.shape = shape;
-        this.taste = taste;
         this.hasSugar = hasSugar;
     }
 
@@ -27,14 +23,6 @@ public abstract class AbstractCandy {
 
     public int getCost() {
         return cost;
-    }
-
-    public String getShape() {
-        return shape;
-    }
-
-    public String getTaste() {
-        return taste;
     }
 
     public boolean isHasSugar() {

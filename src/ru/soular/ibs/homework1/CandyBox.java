@@ -100,31 +100,31 @@ public class CandyBox implements IBoxable {
         return null;
     }
 
-    public void optimizeWeight(int desirableWeight) {
+    public void optimizeByWeight(int desirableWeight) {
         if (desirableWeight < getOverallWeight()) {
 
             while (desirableWeight < getOverallWeight() && getMinWeightCandy() != null) {
                 array.remove(getMinWeightCandy());
             }
 
-            System.out.println("Successful weight optimization! Current weight: " + getOverallWeight());
+            System.out.println("Successful optimization! Current weight: " + getOverallWeight());
 
         } else {
             System.out.println("Current weight already meets your request");
         }
     }
 
-    public void optimizeCost(int desirableCost) {
-        if (desirableCost < getOverallCost()) {
+    public void optimizeByCost(int desirableWeight) {
+        if (desirableWeight < getOverallWeight()) {
 
-            while (desirableCost < getOverallCost() && getMinCostCandy() != null) {
+            while (desirableWeight < getOverallWeight() && getMinCostCandy() != null) {
                 array.remove(getMinCostCandy());
             }
 
-            System.out.println("Successful cost optimization! Current cost: " + getOverallCost());
+            System.out.println("Successful optimization! Current weight: " + getOverallWeight());
 
         } else {
-            System.out.println("Current cost already meets your request");
+            System.out.println("Current weight already meets your request");
         }
     }
 }

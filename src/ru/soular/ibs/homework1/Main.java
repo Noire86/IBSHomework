@@ -17,7 +17,7 @@ public class Main {
 
 
         candyBox.printOverallCost();
-        candyBox.optimizeCost(400);
+        candyBox.optimizeByCost(100);
 
         candyBox.printWeight();
         candyBox.printContents();

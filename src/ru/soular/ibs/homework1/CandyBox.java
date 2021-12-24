@@ -1,6 +1,7 @@
 package ru.soular.ibs.homework1;
 
 import ru.soular.ibs.homework1.candy.AbstractCandy;
+import ru.soular.ibs.homework1.candy.Caramel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,8 +46,8 @@ public class CandyBox implements IBoxable {
     @Override
     public void printContents() {
         System.out.println("This box consists of: ");
-        for (AbstractCandy candy : array) {
-            System.out.println(candy.getName());
+        for (AbstractCandy candy: array) {
+            System.out.printf("Name: %s, Weight: %s, Cost: %s, Sugar-free: %b\n", candy.getName(), candy.getWeight(), candy.getCost(), !candy.isHasSugar());
         }
     }
 

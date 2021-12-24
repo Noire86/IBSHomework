@@ -1,4 +1,4 @@
-package ru.soular.ibs.homework.candy;
+package ru.soular.ibs.homework1.candy;
 
 public abstract class AbstractCandy {
     private String name;

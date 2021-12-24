@@ -1,8 +1,8 @@
-package ru.soular.ibs.homework;
+package ru.soular.ibs.homework1;
 
-import ru.soular.ibs.homework.candy.Caramel;
-import ru.soular.ibs.homework.candy.ChocolateBar;
-import ru.soular.ibs.homework.candy.Lollipop;
+import ru.soular.ibs.homework1.candy.Caramel;
+import ru.soular.ibs.homework1.candy.ChocolateBar;
+import ru.soular.ibs.homework1.candy.Lollipop;
 
 public class Main {
     public static void main(String[] args) {

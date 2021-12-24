@@ -1,6 +1,6 @@
-package ru.soular.ibs.homework;
+package ru.soular.ibs.homework1;
 
-import ru.soular.ibs.homework.candy.AbstractCandy;
+import ru.soular.ibs.homework1.candy.AbstractCandy;
 
 public interface IBoxable {
     void add(AbstractCandy candy);

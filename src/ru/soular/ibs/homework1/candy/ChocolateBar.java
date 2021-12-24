@@ -12,4 +12,9 @@ public class ChocolateBar extends AbstractCandy {
     public String getChocolateType() {
         return chocolateType;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Name: %s, Weight: %d, Cost: %d, Sugar-free: %b, Chocolate: %s", getName(), getWeight(), getCost(), isHasSugar(), getChocolateType());
+    }
 }

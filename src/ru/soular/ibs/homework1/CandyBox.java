@@ -46,7 +46,7 @@ public class CandyBox implements IBoxable {
     public void printContents() {
         System.out.println("This box consists of: ");
         for (AbstractCandy candy: array) {
-            System.out.printf("Name: %s, Weight: %s, Cost: %s, Sugar-free: %b\n", candy.getName(), candy.getWeight(), candy.getCost(), !candy.isHasSugar());
+            System.out.println(candy.toString());
         }
     }
 

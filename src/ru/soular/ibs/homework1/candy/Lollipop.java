@@ -12,4 +12,9 @@ public class Lollipop extends AbstractCandy {
     public String getColor() {
         return color;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Name: %s, Weight: %d, Cost: %d, Sugar-free: %b, Color: %s", getName(), getWeight(), getCost(), isHasSugar(), getColor());
+    }
 }

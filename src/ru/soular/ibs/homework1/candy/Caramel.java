@@ -12,4 +12,9 @@ public class Caramel extends AbstractCandy {
     public boolean isChewable() {
         return chewable;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Name: %s, Weight: %d, Cost: %d, Sugar-free: %b, Chewable: %b", getName(), getWeight(), getCost(), isHasSugar(), isChewable());
+    }
 }

@@ -1,7 +1,6 @@
 package ru.soular.ibs.homework1;
 
 import ru.soular.ibs.homework1.candy.AbstractCandy;
-import ru.soular.ibs.homework1.candy.Caramel;
 
 import java.util.ArrayList;
 import java.util.List;

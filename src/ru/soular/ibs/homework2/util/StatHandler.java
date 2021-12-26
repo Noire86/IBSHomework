@@ -1,4 +1,4 @@
 package ru.soular.ibs.homework2.util;
 
-public class WordHandler {
+public class StatHandler {
 }

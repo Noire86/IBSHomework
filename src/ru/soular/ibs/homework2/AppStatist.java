@@ -1,4 +1,8 @@
-package ru.soular.ibs.homework2.util;
+package ru.soular.ibs.homework2;
+
+import ru.soular.ibs.homework2.util.FileHandler;
+import ru.soular.ibs.homework2.util.MenuHandler;
+import ru.soular.ibs.homework2.util.StatHandler;
 
 import java.io.IOException;
 import java.nio.file.Path;

@@ -3,26 +3,40 @@ package ru.soular.ibs.homework2.util;
 import java.util.*;
 
 public class StatHandler {
-    public static Map<String, Integer> getOverallStats(List<String> stringList) {
+    private static Map<String, Integer> getStatsMap(List<String> stringList) {
         Map<String, Integer> map = new HashMap<>();
 
-        for (String s : stringList){
+        for (String s : stringList) {
             map.put(s, Collections.frequency(stringList, s));
         }
-
         return map;
 
     }
 
-    public static List<String> getFrequent(Map<String, Integer> map){
+    private static List<String> getStatsList(Map<String, Integer> map, boolean frequent) {
         List<String> result = new ArrayList<>();
         int maxValue = Collections.max(map.values());
 
-        for(Map.Entry<String, Integer> entry : map.entrySet()){
-            if(entry.getValue() == maxValue){
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+
+            if (frequent) {
+                if (entry.getValue() == maxValue) {
+                    result.add("Word: '" + entry.getKey() + "' Frequency: " + entry.getValue() + " times");
+                }
+            } else {
                 result.add("Word: '" + entry.getKey() + "' Frequency: " + entry.getValue() + " times");
             }
         }
+
+
+        result.sort(String::compareToIgnoreCase);
         return result;
+    }
+
+    public static void printStats(List<String> list, boolean frequent) {
+        List<String> resultList = getStatsList(getStatsMap(list), frequent);
+        for (String s : resultList) {
+            System.out.println(s);
+        }
     }
 }

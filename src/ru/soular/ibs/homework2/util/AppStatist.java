@@ -50,9 +50,12 @@ public class AppStatist {
                     printList(wordList, true);
                     break;
                 case "3":
-                    printStats(wordList);
+                    StatHandler.printStats(wordList, false);
                     break;
                 case "4":
+                    StatHandler.printStats(wordList, true);
+                    break;
+                case "5":
                     System.out.println("Exiting the application, goodbye!");
                     System.exit(0);
                     break;
@@ -71,21 +74,10 @@ public class AppStatist {
     private void printList(List<String> list, boolean unique) {
         try {
             List<String> wordList = FileHandler.parseFile(path, true);
-            for (String s : wordList) {
-                System.out.println(s);
-            }
-
+            printList(wordList);
 
         } catch (IOException e) {
             System.out.println("File not found!");
-        }
-    }
-
-    private void printStats(List<String> list) {
-        List<String> resultList = StatHandler.getFrequent(StatHandler.getOverallStats(list));
-
-        for (String s : resultList) {
-            System.out.println(s);
         }
     }
 }

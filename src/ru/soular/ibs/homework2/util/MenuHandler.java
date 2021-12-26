@@ -9,7 +9,8 @@ public class MenuHandler {
                 "Use this menu to operate:\n" +
                 "1. Print all words in alphabetical order\n" +
                 "2. Print all unique words in alphabetical order\n" +
-                "3. Print the most used words count\n" +
-                "4. Quit application");
+                "3. Print the overall words count\n" +
+                "4. Print the most frequent words\n" +
+                "5. Quit application");
     }
 }

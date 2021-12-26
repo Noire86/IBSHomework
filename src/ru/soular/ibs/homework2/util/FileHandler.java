@@ -13,7 +13,7 @@ public class FileHandler {
         List<String> result = new ArrayList<>();
 
         for (String s : list) {
-            result.addAll(Arrays.asList(s.toLowerCase().split("\\W+")));
+            result.addAll(Arrays.asList(s.toLowerCase().split("[^a-zA-Zа-яёА-ЯЁ]+")));
         }
 
         result.sort(String::compareToIgnoreCase);

@@ -63,6 +63,9 @@ public class AppStatist {
                     System.out.println("Exiting the application, goodbye!");
                     System.exit(0);
                     break;
+                default:
+                    System.out.println("Please use the correct menu value!");
+                    break;
             }
 
 

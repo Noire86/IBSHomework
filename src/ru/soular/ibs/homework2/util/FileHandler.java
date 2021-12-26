@@ -8,21 +8,21 @@ import java.util.*;
 
 public class FileHandler {
 
-    public static List<String> parseFile(Path file) throws IOException{
-           List<String> list = Files.readAllLines(file);
-           List<String> result = new ArrayList<>();
+    public static List<String> parseFile(Path file) throws IOException {
+        List<String> list = Files.readAllLines(file);
+        List<String> result = new ArrayList<>();
 
-           for (String s : list) {
-               result.addAll(Arrays.asList(s.toLowerCase().split("\\W+")));
-           }
+        for (String s : list) {
+            result.addAll(Arrays.asList(s.toLowerCase().split("\\W+")));
+        }
 
-           result.sort(String::compareToIgnoreCase);
+        result.sort(String::compareToIgnoreCase);
 
 
-           return result;
+        return result;
     }
 
-    public static List<String> parseFile(Path file, boolean unique) throws IOException{
+    public static List<String> parseFile(Path file, boolean unique) throws IOException {
         if (unique) {
             Set<String> set = new HashSet<>(parseFile(file));
             List<String> list = new ArrayList<>(set);

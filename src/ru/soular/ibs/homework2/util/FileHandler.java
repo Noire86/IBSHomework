@@ -1,25 +1,41 @@
 package ru.soular.ibs.homework2.util;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class FileHandler {
 
-    public static List<String> parseFile(File file) throws IOException {
-        List<String> list = new ArrayList<>();
-        FileReader reader = new FileReader(file);
-        BufferedReader bufferedReader = new BufferedReader(reader);
+    public static List<String> parseFile(Path file) throws IOException{
+           List<String> list = Files.readAllLines(file);
+           List<String> result = new ArrayList<>();
 
-        while (bufferedReader.ready()){
-            String[] splitArray = bufferedReader.readLine().split("\\W+");
-            list.addAll(Arrays.asList(splitArray));
+           for (String s : list) {
+               result.addAll(Arrays.asList(s.toLowerCase().split("\\W+")));
+           }
+
+           result.sort(String::compareToIgnoreCase);
+
+
+           return result;
+    }
+
+    public static List<String> parseFile(Path file, boolean unique) throws IOException{
+        if (unique) {
+            Set<String> set = new HashSet<>(parseFile(file));
+            List<String> list = new ArrayList<>(set);
+            list.sort(String::compareToIgnoreCase);
+            return list;
         }
+        return parseFile(file);
+    }
 
-        return list;
+    public static Path getFile(String filePath) {
+        Path path = Paths.get(filePath);
+        return path.toAbsolutePath();
     }
 }
+
+

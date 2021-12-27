@@ -18,7 +18,7 @@ public class StatHandler {
         int maxValue = 0;
         try {
             maxValue = Collections.max(map.values());
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Collection is empty!");
         }
 

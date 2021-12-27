@@ -15,7 +15,12 @@ public class StatHandler {
 
     private static List<String> getStatsList(Map<String, Integer> map, boolean frequent) {
         List<String> result = new ArrayList<>();
-        int maxValue = Collections.max(map.values());
+        int maxValue = 0;
+        try {
+            maxValue = Collections.max(map.values());
+        } catch (Exception e){
+            System.out.println("Collection is empty!");
+        }
 
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
 

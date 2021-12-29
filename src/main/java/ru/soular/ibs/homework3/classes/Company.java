@@ -1,24 +1,25 @@
 package ru.soular.ibs.homework3.classes;
 
+import java.util.Collections;
 import java.util.List;
 
-public class Share {
+public class Company {
     private int id;
     private String name;
     private String address;
     private String phoneNumber;
     private String founded;
     private String inn;
-    private List<Security> securitiesList;
+    private List<Security> securities;
 
-    public Share(int id, String name, String address, String phoneNumber, String founded, String inn, List<Security> securitiesList) {
+    public Company(int id, String name, String address, String phoneNumber, String founded, String inn, List<Security> securities) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.founded = founded;
         this.inn = inn;
-        this.securitiesList = securitiesList;
+        this.securities = securities;
     }
 
 
@@ -70,11 +71,24 @@ public class Share {
         this.inn = inn;
     }
 
-    public List<Security> getSecuritiesList() {
-        return securitiesList;
+    public List<Security> getSecurities() {
+        return securities;
     }
 
-    public void setSecuritiesList(List<Security> securitiesList) {
-        this.securitiesList = securitiesList;
+    public void setSecuritiesList(List<Security> securities) {
+        this.securities = securities;
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", founded='" + founded + '\'' +
+                ", inn='" + inn + '\'' +
+                ", securities=" + securities +
+                '}';
     }
 }

@@ -6,9 +6,9 @@ public class Security {
     private String name;
     private String[] currency;
     private String code;
-    private LocalDate date;
+    private String date;
 
-    public Security(String name, String[] currency, String code, LocalDate date) {
+    public Security(String name, String[] currency, String code, String date) {
         this.name = name;
         this.currency = currency;
         this.code = code;
@@ -40,11 +40,11 @@ public class Security {
         this.code = code;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }

@@ -1,7 +1,28 @@
 plugins {
     id 'java'
+    id 'idea'
 }
-
+repositories {
+    mavenCentral()
+}
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
 version = '1.2.2'
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'ru.soular.ibs.homework2.Main'
+        )
+    }
+}
+dependencies {
+
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.google.code.gson:gson-parent:2.8.9'
+}

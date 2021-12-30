@@ -23,7 +23,7 @@ public class Main {
             MenuHandler.printShares(list, "RUB");
 
             MenuHandler.printDelimiter();
-            MenuHandler.printShares("10.12.1970", list);
+            MenuHandler.printShares("10.12.2600", list);
 
         } catch (IOException e){
             e.printStackTrace();

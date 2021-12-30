@@ -6,14 +6,11 @@ import ru.soular.ibs.homework3.classes.Security;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class MenuHandler {
-    public static final String[] DATE_FORMAT = {"dd.MM.yyyy", "dd/MM/yyyy", "dd/MM/uu"};
 
 
     public static void printMenu() {
@@ -25,13 +22,13 @@ public class MenuHandler {
     }
 
     public static void printCompany(Company c) {
-        LocalDate founded = LocalDate.parse(c.getFounded(), DateTimeFormatter.ofPattern(DATE_FORMAT[0]));
+        LocalDate founded = LocalDate.parse(c.getFounded(), DateTimeFormatter.ofPattern(DateUtils.DATE_FORMATS[0]));
         System.out.println(c.getName() + " - Was founded since: " + founded.format(DateTimeFormatter.ofPattern("dd.MM.yy")));
     }
 
     public static void printShares(Company c) {
         List<Security> expiredShares = c.getSecurities().stream()
-                .filter(security -> LocalDate.now().isAfter(LocalDate.parse(security.getDate(), DateTimeFormatter.ofPattern(DATE_FORMAT[0]))))
+                .filter(security -> LocalDate.now().isAfter(LocalDate.parse(security.getDate(), DateTimeFormatter.ofPattern(DateUtils.DATE_FORMATS[0]))))
                 .collect(Collectors.toList());
 
         System.out.println("Expired shares of holder " + c.getName() + ":");
@@ -53,41 +50,12 @@ public class MenuHandler {
     }
 
     public static void printShares(String date, List<Company> list) {
-        LocalDate userDate = null;
-        LocalDate foundedDate = null;
-        boolean result = false;
+        System.out.println("Companies that were founded after " + date + ":");
 
-
-        for (Company c : list) {
-
-            for (String s : DATE_FORMAT) {
-
-                try {
-                    userDate = LocalDate.parse(date, DateTimeFormatter.ofPattern(s));
-                } catch (DateTimeException ignored) {
-                }
-
-                try {
-                    foundedDate = LocalDate.parse(c.getFounded(), DateTimeFormatter.ofPattern(DATE_FORMAT[0]));
-                } catch (DateTimeException ignored) {
-                }
-
-            }
-
-            if (userDate != null && foundedDate != null) {
-                result = foundedDate.isAfter(userDate);
-            } else {
-                System.out.println("Invalid date value!");
-                break;
-            }
-
-            if (result) {
-                printCompany(c);
-            } else {
-                System.out.println("None of the companies were found after this date!");
-                break;
-            }
-//сделай новый метод принимающий дату и возвращающий лист нужных компаний;
+        try {
+            DateUtils.checkDates(date, list).forEach(MenuHandler::printCompany);
+        } catch (NullPointerException | DateTimeException e) {
+            System.out.println(e.getMessage());
         }
     }
 }

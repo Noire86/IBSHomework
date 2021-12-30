@@ -3,6 +3,7 @@ package ru.soular.ibs.homework3;
 import com.google.gson.JsonSyntaxException;
 import ru.soular.ibs.homework2.util.FileHandler;
 import ru.soular.ibs.homework3.classes.Company;
+import ru.soular.ibs.homework3.util.DateUtils;
 import ru.soular.ibs.homework3.util.JsonHandler;
 import ru.soular.ibs.homework3.util.MenuHandler;
 
@@ -35,7 +36,9 @@ public class AppShares {
             } catch (IOException e) {
                 System.out.println("File not found, try again!");
             } catch (JsonSyntaxException e) {
-                System.out.println("Error on parsing file: Invalid JSON syntax!");
+                System.out.println("Error on parsing file: Invalid JSON syntax! Objects can not be deserialized.");
+                System.out.println(e.getLocalizedMessage());
+                System.out.println("Please, try again!");
             }
 
         }
@@ -59,7 +62,7 @@ public class AppShares {
                     companyList.forEach(MenuHandler::printShares);
                     break;
                 case "3":
-                    System.out.println("Please enter the desired date:");
+                    System.out.println("Please enter the desired date formatted as " + Arrays.toString(DateUtils.DATE_FORMATS));
                     String date = sc.nextLine();
                     MenuHandler.printCompany(date, companyList);
                     break;

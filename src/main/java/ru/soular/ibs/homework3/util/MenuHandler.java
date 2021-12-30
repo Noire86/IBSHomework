@@ -33,9 +33,9 @@ public class MenuHandler {
     }
 
     public static void printCompany(String date, List<Company> list) {
-        System.out.println("Companies that were founded after " + date + ":");
-
         try {
+            printDelimiter();
+            System.out.println("Designated date: '" + date + "':");
             DateUtils.checkDates(date, list).forEach(MenuHandler::printCompany);
         } catch (NullPointerException | DateTimeException e) {
             System.out.println(e.getMessage());
@@ -55,7 +55,7 @@ public class MenuHandler {
     }
 
     public static void printShares(List<Company> companiesList, String currency) {
-
+        printDelimiter();
         System.out.println("Shares by currency type: " + currency.toUpperCase());
         companiesList.stream()
                 .flatMap(c -> c.getSecurities().stream())

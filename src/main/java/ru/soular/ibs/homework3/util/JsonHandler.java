@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import ru.soular.ibs.homework3.classes.Company;
-import ru.soular.ibs.homework3.classes.Security;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,7 +1,7 @@
 package ru.soular.ibs.homework3;
 
 import com.google.gson.JsonSyntaxException;
-import ru.soular.ibs.homework2.util.FileHandler;
+import ru.soular.ibs.homework3.util.FileHandler;
 import ru.soular.ibs.homework3.classes.Company;
 import ru.soular.ibs.homework3.util.DateUtils;
 import ru.soular.ibs.homework3.util.JsonHandler;

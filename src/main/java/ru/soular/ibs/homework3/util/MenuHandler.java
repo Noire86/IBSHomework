@@ -14,6 +14,12 @@ public class MenuHandler {
 
 
     public static void printMenu() {
+        System.out.println("Welcome! Use this menu to navigate through the application:\n" +
+                "1. Print all companies and their dates of foundation\n" +
+                "2. Print all expired shares\n" +
+                "3. Print companies that were founded after designated date\n" +
+                "4. Print all shares by currency type\n" +
+                "5. Quit application");
 
     }
 
@@ -26,11 +32,21 @@ public class MenuHandler {
         System.out.println(c.getName() + " - Was founded since: " + founded.format(DateTimeFormatter.ofPattern("dd.MM.yy")));
     }
 
+    public static void printCompany(String date, List<Company> list) {
+        System.out.println("Companies that were founded after " + date + ":");
+
+        try {
+            DateUtils.checkDates(date, list).forEach(MenuHandler::printCompany);
+        } catch (NullPointerException | DateTimeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static void printShares(Company c) {
         List<Security> expiredShares = c.getSecurities().stream()
                 .filter(security -> LocalDate.now().isAfter(LocalDate.parse(security.getDate(), DateTimeFormatter.ofPattern(DateUtils.DATE_FORMATS[0]))))
                 .collect(Collectors.toList());
-
+        System.out.println("--------------------------");
         System.out.println("Expired shares of holder " + c.getName() + ":");
         for (Security s : expiredShares) {
             System.out.printf("Share: %s | Code: %s | Expiry: %s | Currency: %s|%n", s.getName(), s.getCode(), s.getDate(), Arrays.toString(s.getCurrency()));
@@ -49,13 +65,4 @@ public class MenuHandler {
                 .forEachOrdered(System.out::println);
     }
 
-    public static void printShares(String date, List<Company> list) {
-        System.out.println("Companies that were founded after " + date + ":");
-
-        try {
-            DateUtils.checkDates(date, list).forEach(MenuHandler::printCompany);
-        } catch (NullPointerException | DateTimeException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 }

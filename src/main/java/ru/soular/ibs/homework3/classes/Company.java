@@ -1,6 +1,5 @@
 package ru.soular.ibs.homework3.classes;
 
-import java.util.Collections;
 import java.util.List;
 
 public class Company {

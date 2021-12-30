@@ -1,7 +1,5 @@
 package ru.soular.ibs.homework3.classes;
 
-import java.time.LocalDate;
-
 public class Security {
     private String name;
     private String[] currency;
